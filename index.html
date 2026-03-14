@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR IPTV Splash Gradient</title>
+
+<style>
+body,html{
+  margin:0;
+  padding:0;
+  height:100%;
+  font-family:sans-serif;
+}
+
+/* شاشة البداية */
+#splash{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: linear-gradient(270deg, #1a1a1a, #2a2a2a, #1a1a1a);
+  background-size: 600% 600%;
+  animation: gradientBG 7s ease forwards;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:9999;
+}
+
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.logo{
+  font-size:60px;
+  font-weight:bold;
+  letter-spacing:6px;
+  color:#ffffff;
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+
+.loading-bar{
+  width:250px;
+  height:5px;
+  background:#333;
+  overflow:hidden;
+  border-radius:10px;
+}
+
+.loading-bar span{
+  display:block;
+  height:100%;
+  width:0;
+  background:#fff;
+  animation:load 7s linear forwards;
+}
+
+@keyframes load{
+  100%{width:100%;}
+}
+
+/* الصفحة الرئيسية */
+#main{
+  display:none;
+  min-height:100vh;
+  padding:20px;
+  background:#6e6e6e;
+}
+
+.topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:#111;
+  color:white;
+  padding:10px 15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:bold;
+  font-size:18px;
+  border:2px solid rgba(42,143,184,0.5);
+  border-radius:0 0 12px 12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  z-index:999;
+}
+
+/* تعديل الساعة (ريڨل + عرض كامل) */
+.topbar #clock{
+  background: rgba(0,0,0,0.4); /* خلفية شبه شفافة */
+  padding:6px 14px;             /* مساحة أكبر للوقت */
+  border-radius:8px;            /* حواف مدورة */
+  font-family: monospace;       /* خط ثابت */
+  white-space: nowrap;           /* كل الوقت في خط واحد */
+}
+
+/* شبكة الأيقونات */
+.grid-container{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  max-width:600px;
+  margin:80px auto 20px auto;
+}
+
+.section-box{
+  position:relative;
+  background:#fff;
+  border-radius:15px;
+  aspect-ratio:1/1;
+  overflow:hidden;
+  border:2px solid #333;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(0,0,0,0.35);
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.section-box img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:10px;
+}
+
+.section-box:hover{
+  box-shadow:0 0 25px rgba(255,255,255,0.4);
+}
+
+.section-box:active{
+  transform:scale(0.9);
+  box-shadow:0 4px 12px rgba(0,0,0,0.4);
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="splash">
+  <div class="logo">MR IPTV</div>
+  <div class="loading-bar"><span></span></div>
+</div>
+
+<audio id="introSound" autoplay>
+  <source src="https://www.soundjay.com/misc/sounds/bell-ringing-01.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+
+<div id="main">
+
+  <div class="topbar">
+    <span>MR IPTV</span>
+    <span id="clock"></span>
+  </div>
+
+  <div class="grid-container">
+    <a href="go:sport" class="section-box" onclick="playClick()"><img src="https://c.top4top.io/p_3722e46pl0.png"></a>
+    <a href="go:p2" class="section-box" onclick="playClick()"><img src="https://b.top4top.io/p_3723sabwu0.png"></a>
+    <a href="go:p3" class="section-box" onclick="playClick()"><img src="https://j.top4top.io/p_3722iv7ka0.png"></a>
+    <a href="go:p4" class="section-box" onclick="playClick()"><img src="https://e.top4top.io/p_3723si9zi0.png"></a>
+    <a href="go:p5" class="section-box" onclick="playClick()"><img src="https://l.top4top.io/p_3723zy9zz0.png"></a>
+    <a href="go:p6" class="section-box" onclick="playClick()"><img src="https://l.top4top.io/p_3723qk70j0.png"></a>
+    <a href="go:p7" class="section-box" onclick="playClick()"><img src="https://b.top4top.io/p_3723zwarn0.png"></a>
+    <a href="go:p8" class="section-box" onclick="playClick()"><img src="https://c.top4top.io/p_37238peli0.png"></a>
+    <a href="go:p9" class="section-box" onclick="playClick()"><img src="https://f.top4top.io/p_3723n8mqt0.png"></a>
+    <a href="go:p10" class="section-box" onclick="playClick()"><img src="https://h.top4top.io/p_3723pfbx40.png"></a>
+    <a href="go:p11" class="section-box" onclick="playClick()"><img src="https://h.top4top.io/p_3723npc180.png"></a>
+    <a href="go:p12" class="section-box" onclick="playClick()"><img src="https://d.top4top.io/p_37235m1uk0.png"></a>
+    <a href="go:matches" class="section-box" onclick="playClick()"><img src="https://g.top4top.io/p_3724ygt6j0.png"></a>
+  </div>
+
+</div>
+
+<script>
+setTimeout(function(){
+  document.getElementById("splash").style.display="none";
+  document.getElementById("introSound").pause();
+  showMain();
+},7000);
+
+function playClick(){
+  document.getElementById("clickSound").play();
+  if(navigator.vibrate){navigator.vibrate(30);}
+}
+
+function showMain(){
+  document.getElementById("main").style.display="block";
+  const boxes=document.querySelectorAll(".section-box");
+  boxes.forEach((box,i)=>{
+    box.style.animation="fadeUp 0.6s ease forwards";
+    box.style.animationDelay=(i*0.1)+"s";
+  });
+}
+
+/* الساعة مع عرض كامل */
+function clock(){
+  let d=new Date();
+  let h=d.getHours(); let m=d.getMinutes(); let s=d.getSeconds();
+  if(h<10) h="0"+h; if(m<10) m="0"+m; if(s<10) s="0"+s;
+  document.getElementById("clock").innerHTML=`${h}:${m}:${s}`;
+}
+setInterval(clock,1000);
+</script>
+
+</body>
+</html>
